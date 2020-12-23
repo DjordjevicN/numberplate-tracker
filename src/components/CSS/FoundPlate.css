@@ -1,0 +1,41 @@
+/* .foundPlatesContent {
+  width: 50%;
+  margin: 0 auto;
+} */
+/* .cardBlock {
+  display: grid;
+  place-items: center;
+} */
+.plateCard {
+  background-color: #1b262c;
+  filter: drop-shadow(3px 3px 5px rgba(0, 0, 0, 0.219));
+  width: 400px;
+  padding: 10px;
+  /* margin: 20px 0; */
+  /* display: grid; */
+  margin: 20px auto;
+}
+.plateCard img {
+  width: 400px;
+  margin: 0 auto;
+}
+.plateCard h4 {
+  color: white;
+  font-size: 15px;
+  font-weight: 400;
+  padding: 20px 10px;
+}
+.plateCardLink {
+  float: right;
+  color: #c0e6ed;
+}
+.plateCard p {
+  color: white;
+  margin: 5px 10px;
+  background-color: none;
+  font-weight: 100;
+}
+.plateCard p span {
+  color: #c0e6ed;
+  font-weight: 100;
+}

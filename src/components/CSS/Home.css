@@ -1,0 +1,107 @@
+.homeWrapper {
+  max-width: 900px;
+  margin: 0 auto;
+}
+.homeContent {
+  margin: 10% 0;
+}
+.hero {
+  font-size: 60px;
+  width: 90%;
+  margin: 0 auto;
+  font-weight: bold;
+  line-height: 100px;
+  color: #c0e6ed;
+  text-align: center;
+}
+
+.searchWrapper {
+  width: 90%;
+  margin: 80px auto;
+}
+.search {
+  width: 70%;
+  margin: 0 auto;
+}
+
+.searchInputBlock {
+  display: flex;
+  justify-content: center;
+  filter: drop-shadow(3px 3px 5px rgba(0, 0, 0, 0.219));
+}
+.searchInput {
+  padding: 15px 40px;
+  background-color: aliceblue;
+  border-radius: 50px 0px 0px 50px;
+  border: none;
+  font-size: 20px;
+  text-align: center;
+  outline: none;
+}
+.searchBTN {
+  background-color: #1a4058;
+  color: white;
+  display: flex;
+  align-items: center;
+  padding: 0 40px;
+  border-radius: 0 50px 50px 0;
+  cursor: pointer;
+}
+.tut {
+  margin: 30px 0;
+  text-align: left;
+  color: #b3b3b3;
+}
+.tut p {
+  color: rgb(163, 163, 163);
+}
+.statistics {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0 auto;
+  background-color: #1a4058;
+  width: 80%;
+  border-radius: 50px;
+  padding: 10px 0;
+  filter: drop-shadow(3px 3px 5px rgba(0, 0, 0, 0.219));
+}
+.statisticsItem {
+  padding-left: 20px;
+  color: #c0e6ed;
+}
+.statisticsItem span {
+  padding-left: 20px;
+  color: #85e4a2;
+}
+.addPlateBtn {
+}
+@media only screen and (max-width: 570px) {
+  .hero {
+    font-size: 40px;
+  }
+  .searchInput {
+    padding: 15px 20px;
+    font-size: 20px;
+  }
+  .statistics {
+    width: 95%;
+    font-size: 13px;
+  }
+  .statisticsItem span {
+    padding-left: 10px;
+  }
+}
+@media only screen and (max-width: 450px) {
+  .hero {
+    font-size: 30px;
+    line-height: 60px;
+  }
+  .searchInput {
+    padding: 15px 10px;
+    font-size: 15px;
+  }
+  .searchBTN {
+    padding: 0 20px;
+  }
+}

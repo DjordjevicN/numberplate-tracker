@@ -1,0 +1,16 @@
+.lostPlateCard {
+  background-color: #1b262c;
+  filter: drop-shadow(3px 3px 5px rgba(0, 0, 0, 0.219));
+  width: 400px;
+  padding: 10px;
+  margin: 20px auto;
+}
+.lostPlateCard h1 {
+  font-size: 50px;
+  text-align: center;
+  color: #c0e6ed;
+}
+.lostPlateCard p {
+  color: white;
+  padding: 20px;
+}

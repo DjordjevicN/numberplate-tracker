@@ -1,0 +1,36 @@
+.plateNotFoundInformation {
+  width: 90%;
+  margin: 0 auto;
+}
+.plateNotFoundInformation h1 {
+  color: rgb(131, 0, 0);
+  text-align: center;
+  margin: 50px 50px;
+}
+.plateNotFoundInstructions {
+  color: white;
+  /* text-align: center; */
+}
+.notFoundInstructionsTitle {
+  font-size: 18px;
+  padding: 5px;
+}
+.notFoundInstructionsTab {
+  padding: 5px;
+  font-size: 18px;
+}
+.addLostPlateBtn {
+  /* text-align: center; */
+  background-color: #1a4058;
+  color: #c0e6ed;
+  display: flex;
+  justify-content: center;
+  width: 70px;
+  padding: 20px 40px;
+  margin: 40px auto;
+  cursor: pointer;
+  filter: drop-shadow(3px 3px 5px rgba(0, 0, 0, 0.26));
+}
+.addLostPlateBtn:hover {
+  filter: drop-shadow(3px 3px 5px rgba(0, 0, 0, 0.425));
+}

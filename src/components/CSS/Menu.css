@@ -1,0 +1,37 @@
+.menuWrapper {
+  max-width: 900px;
+  margin: 0 auto;
+}
+.menuContent {
+  display: flex;
+  justify-content: space-between;
+  padding: 20px;
+}
+.logo {
+  color: rgb(255, 255, 255);
+  font-size: 20px;
+  font-weight: bold;
+}
+.link {
+  text-decoration: none;
+  color: #c0e6ed;
+}
+.signUpBtn {
+  color: #c0e6ed;
+  background-color: #1a4058;
+  border-radius: 50px;
+  padding: 10px;
+  filter: drop-shadow(3px 3px 5px rgba(0, 0, 0, 0.26));
+}
+.signUpBtn:hover {
+  filter: drop-shadow(3px 3px 5px rgba(0, 0, 0, 0.5));
+}
+@media only screen and (max-width: 570px) {
+  .logo {
+    font-size: 15px;
+  }
+  .signUpBtn {
+    padding: 10px;
+    font-size: 10px;
+  }
+}
