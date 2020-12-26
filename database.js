@@ -5,7 +5,7 @@ module.exports = mysql.createConnection({
     user: 'root',
     host: 'localhost',
     password: '',
-    database: 'lostplate'
+    database: 'lostplates'
 })
 // db.connect((err) => {
 //     if (err) {
