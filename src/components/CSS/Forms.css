@@ -8,10 +8,20 @@ form {
   display: flex;
   flex-direction: column;
 }
+.form {
+  display: flex;
+  flex-direction: column;
+}
 .fileInput {
   padding: 0;
 }
 form input {
+  text-align: center;
+  /* margin-top: 10px; */
+  padding: 20px 0px;
+  font-size: 18px;
+}
+.formInput {
   text-align: center;
   /* margin-top: 10px; */
   padding: 20px 0px;
@@ -39,4 +49,13 @@ form input {
 }
 .inputLabel span {
   color: rgb(180, 1, 1);
+}
+.switchForm {
+  display: flex;
+  justify-content: flex-start;
+  margin-top: 20px;
+  color: rgb(134, 0, 0);
+}
+.switchForm:hover {
+  color: rgb(184, 0, 0);
 }

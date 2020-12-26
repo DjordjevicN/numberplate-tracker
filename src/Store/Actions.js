@@ -17,6 +17,21 @@ export const findNumberplate = (value) => {
         })
     }
 }
+export const getPlatesIPosted = (value) => {
+    return async (dispatch) => {
+        dispatch({
+            type: "LOADING_TRUE"
+        })
+        let response = await Axios.get(`${hosting}/getPlatesIPosted/${value}`);
+        dispatch({
+            type: 'PLATES_I_FOUND',
+            payload: response.data.results
+        })
+        dispatch({
+            type: 'LOADING_FALSE'
+        })
+    }
+}
 export const plateChecker = (value) => {
 
     return async (dispatch) => {
@@ -55,6 +70,7 @@ export const createLostPlate = (value) => {
     }
 }
 export const createFoundPlate = (value) => {
+
     return async (dispatch) => {
         dispatch({
             type: "LOADING_TRUE"
@@ -64,7 +80,12 @@ export const createFoundPlate = (value) => {
         //     value.taskLatitude = response.data.results[0].geometry.lat
         //     value.taskLongitude = response.data.results[0].geometry.lng
         // }
-        await Axios.post(`${hosting}/createFoundPlate`, { value })
+        let response = await Axios.post(`${hosting}/createFoundPlate`, { value })
+        console.log(response);
+        dispatch({
+            type: 'SET_NEW_PLATE',
+            payload: response.data.results
+        })
         dispatch({
             type: 'LOADING_FALSE'
         })
@@ -102,11 +123,16 @@ export const createUser = (value) => {
 }
 // LOGIN USER
 export const loginUser = (value) => {
+
     return async (dispatch) => {
         dispatch({
             type: "LOADING_TRUE"
         })
+        console.log('vvv');
         const response = await Axios.post(`${hosting}/loginUser`, { value });
+
+        console.log('ovde');
+        console.log(response);
         if (response.data.results.length <= 0) {
             // dispatch({
             //     type: "NOTIFICATION",
@@ -120,6 +146,7 @@ export const loginUser = (value) => {
                 type: 'LOGIN_USER',
                 payload: response.data.results[0]
             })
+
             dispatch({
                 type: 'SET_LOCAL_STATE_TOKEN',
                 payload: response.data.token

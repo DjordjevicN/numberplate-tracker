@@ -52,7 +52,8 @@ function Home(props) {
                             }} >TRAŽI</p>
                         </div>
                         <div className="tut">
-                            <p>when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially </p>
+                            <p>Unesite broj tablice <span>bez razmaka, - , = , /.</span></p>
+                            <p>  Slova <span> Đ,Š,Č,Ć,Ž mogu da se koriste </span> ali svakako probajte da trazite i bez kvacica (npr. ČŠ kao CS), mozda neko ne koristi cirilicnu tastaturu a uneo je tablicu kao pronadjenu.</p>
                         </div>
                     </div>
                 </div>

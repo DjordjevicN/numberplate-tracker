@@ -17,8 +17,9 @@ function FoundPlate(props) {
                             <img src={item.image} alt="plate" />
                             <p><span>Broj tablice: </span> {item.plateNumber}</p>
                             {item.address && <p><span>Ulica: </span>{item.address}</p>}
-                            {item.message && <p><span>Marko: </span>{item.message}</p>}
+                            {item.message && <p><span>Poruka: </span>{item.message}</p>}
                         </div>
+
                         {item.latitude && item.longitude ?
                             <div className="foundPlateMap">
                                 MAPA

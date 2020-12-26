@@ -1,8 +1,6 @@
 
 const initState = {
-    authUser: [
-        { id: 33 }
-    ],
+    authUser: {},
     lostNumberPlates: [
         {
             plate_id: 1,
@@ -34,7 +32,9 @@ const initState = {
         }
     ],
     foundNumberPlates: [],
+    platesIFound: [],
     matchedPlates: [],
+    newPlateAdded: {},
     loading: false,
     success: '',
     message: ''
@@ -52,6 +52,12 @@ const Reducer = (state = initState, action) => {
         case "SET_MATCHED_PLATE":
             newState.matchedPlates = action.payload;
             break;
+        case "SET_NEW_PLATE":
+            newState.newPlateAdded = action.payload;
+            break;
+        case "PLATES_I_FOUND":
+            newState.platesIFound = action.payload;
+            break;
         case "SET_LOADING":
             newState.loading = action.payload;
             break;
@@ -62,9 +68,14 @@ const Reducer = (state = initState, action) => {
             newState.authUser = action.payload;
             break;
         case "LOGOUT_USER":
-            newState.authUser = [];
+            newState.authUser = {};
             break;
-
+        case "SET_LOCAL_STATE_LOGOUT":
+            localStorage.removeItem('userToken')
+            break;
+        case "SET_LOCAL_STATE_TOKEN":
+            localStorage.setItem('userToken', action.payload)
+            break;
         default:
             newState = state
     }

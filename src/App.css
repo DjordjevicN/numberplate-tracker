@@ -13,3 +13,9 @@ body {
 .App {
   /* background-color: #28363f; */
 }
+.inputWarning {
+  border: 3px solid red;
+}
+.inputLabelWarning {
+  color: rgb(163, 0, 0);
+}

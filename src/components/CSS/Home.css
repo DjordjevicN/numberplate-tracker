@@ -48,12 +48,17 @@
   cursor: pointer;
 }
 .tut {
+  font-size: 13px;
   margin: 30px 0;
   text-align: left;
   color: #b3b3b3;
 }
+.tut span {
+  color: white;
+  font-size: 15px;
+}
 .tut p {
-  color: rgb(163, 163, 163);
+  color: rgb(129, 129, 129);
 }
 .statistics {
   display: flex;
@@ -74,7 +79,16 @@
   padding-left: 20px;
   color: #85e4a2;
 }
-.addPlateBtn {
+
+.addAction {
+  position: fixed;
+  bottom: 25px;
+  right: 25px;
+  font-size: 50px;
+}
+
+.MenuProfile {
+  color: red;
 }
 @media only screen and (max-width: 570px) {
   .hero {

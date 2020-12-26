@@ -1,0 +1,17 @@
+.userInfoWrapper {
+  background-color: #1b262c;
+  filter: drop-shadow(3px 3px 5px rgba(0, 0, 0, 0.219));
+  width: 400px;
+  padding: 10px;
+  margin: 20px auto;
+}
+.userInfoWrapper {
+  display: flex;
+}
+.gravatarImage {
+  width: 150px;
+}
+.userInfo {
+  padding-left: 20px;
+  color: #c0e6ed;
+}

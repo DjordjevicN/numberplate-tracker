@@ -7,6 +7,7 @@ import './components/CSS/FoundPlate.css'
 import './components/CSS/LostPlates.css'
 import './components/CSS/PlateNotFound.css'
 import './components/CSS/Forms.css'
+import './components/CSS/Profile.css'
 import Home from './components/Home'
 import Menu from './components/Menu'
 import FoundPlate from './components/FoundPlate'
@@ -16,6 +17,7 @@ import SignUp from './components/SignUp'
 import Login from './components/Login'
 import AddFoundPlate from './components/AddFoundPlate'
 import AddLostPlate from './components/AddLostPlate'
+import Profile from './components/Profile'
 
 
 
@@ -33,6 +35,7 @@ function App() {
           <Route path='/login' component={Login} />
           <Route path='/addFoundPlate' component={AddFoundPlate} />
           <Route path='/addLostPlate' component={AddLostPlate} />
+          <Route path='/profile' component={Profile} />
         </Switch>
       </div>
     </BrowserRouter>

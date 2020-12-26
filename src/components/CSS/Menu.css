@@ -16,16 +16,19 @@
   text-decoration: none;
   color: #c0e6ed;
 }
-.signUpBtn {
+.menuItem {
+  padding: 0 20px;
+}
+/* .signUpBtn {
   color: #c0e6ed;
   background-color: #1a4058;
   border-radius: 50px;
   padding: 10px;
   filter: drop-shadow(3px 3px 5px rgba(0, 0, 0, 0.26));
-}
-.signUpBtn:hover {
+} */
+/* .signUpBtn:hover {
   filter: drop-shadow(3px 3px 5px rgba(0, 0, 0, 0.5));
-}
+} */
 @media only screen and (max-width: 570px) {
   .logo {
     font-size: 15px;
