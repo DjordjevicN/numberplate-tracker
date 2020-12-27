@@ -2,39 +2,40 @@
 const initState = {
     authUser: {},
     lostNumberPlates: [
-        {
-            plate_id: 1,
-            active: true,
-            found: false,
-            claimed: false,
-            plateNumber: 'bg232cs',
-            latitude: '',
-            longitude: '',
-            address: 'Jurija gagarina',
-            image: './images/testPlate.jpg',
-            message: 'pronagjena tablica kod bajlonove pijace u bunaru kod levog cigana sto prodaje duvan',
-            user_id: 90,
-            owner_id: null,
-        },
-        {
-            plate_id: 2,
-            active: true,
-            found: false,
-            claimed: false,
-            plateNumber: 'bg232cs',
-            latitude: '',
-            longitude: '',
-            address: '',
-            image: './images/testPlate.jpg',
-            message: 'pronagjena tablica kod bajlonove pijace pored bunara Uzo cigan',
-            user_id: '',
-            owner_id: null,
-        }
+        // {
+        //     plate_id: 1,
+        //     active: true,
+        //     found: false,
+        //     claimed: false,
+        //     plateNumber: 'bg232cs',
+        //     latitude: '',
+        //     longitude: '',
+        //     address: 'Jurija gagarina',
+        //     image: './images/testPlate.jpg',
+        //     message: 'pronagjena tablica kod bajlonove pijace u bunaru kod levog cigana sto prodaje duvan',
+        //     user_id: 90,
+        //     owner_id: null,
+        // },
+        // {
+        //     plate_id: 2,
+        //     active: true,
+        //     found: false,
+        //     claimed: false,
+        //     plateNumber: 'bg232cs',
+        //     latitude: '',
+        //     longitude: '',
+        //     address: '',
+        //     image: './images/testPlate.jpg',
+        //     message: 'pronagjena tablica kod bajlonove pijace pored bunara Uzo cigan',
+        //     user_id: '',
+        //     owner_id: null,
+        // }
     ],
     foundNumberPlates: [],
     platesIFound: [],
     matchedPlates: [],
     newPlateAdded: {},
+    plateGlobal: {},
     loading: false,
     success: '',
     message: ''
@@ -51,6 +52,9 @@ const Reducer = (state = initState, action) => {
             break;
         case "SET_MATCHED_PLATE":
             newState.matchedPlates = action.payload;
+            break;
+        case "SET_GLOBAL":
+            newState.plateGlobal = action.payload;
             break;
         case "SET_NEW_PLATE":
             newState.newPlateAdded = action.payload;

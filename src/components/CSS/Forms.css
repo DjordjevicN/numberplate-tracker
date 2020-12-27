@@ -59,3 +59,7 @@ form input {
 .switchForm:hover {
   color: rgb(184, 0, 0);
 }
+.latitude,
+.longitude {
+  background-color: rgb(146, 146, 146);
+}

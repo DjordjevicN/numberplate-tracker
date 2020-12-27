@@ -8,6 +8,8 @@ function AddFoundPlate(props) {
     const [plateNumber, setPlateNumber] = useState('')
     const [address, setAddress] = useState('')
     const [message, setMessage] = useState('')
+    // const [longitude, setLongitude] = useState('')
+    // const [latitude, setLatitude] = useState('')
     const [warning, setWarning] = useState(false)
     let plateStatusChecker = async (data) => {
         let plateNumber = data.plateNumber;
@@ -17,6 +19,8 @@ function AddFoundPlate(props) {
         let data = {
             plateNumber,
             address,
+            longitude: '',
+            latitude: '',
             message,
             users_id: props.authUser.id,
             found: 1
@@ -30,15 +34,28 @@ function AddFoundPlate(props) {
         }
     }
     const handleFile = async (e) => {
-        console.log('FIRE');
+
         const formData = new FormData()
         formData.append("picture", e.target.files[0])
         formData.append('newPlateAdded', props.newPlateAdded.insertId)
-        await fetch("http://localhost:3001/picture", {
+        await fetch("http://api.tablice.nikola-djordjevic.com/picture", {
             method: "POST",
             body: formData
         }).then(res => res.json())
     }
+
+
+    // let gpsLocation = () => {
+    //     navigator.geolocation.getCurrentPosition(function (position) {
+    //         setLongitude(position.coords.longitude)
+    //         setLatitude(position.coords.latitude)
+    //     });
+    // }
+
+
+
+
+
     return (
         <div className="formWrapper">
             <div className="formContent">
@@ -50,6 +67,16 @@ function AddFoundPlate(props) {
                         e.preventDefault()
                         setPlateNumber(e.target.value)
                     }} />
+                    {/* <p className='submitBTN formInput' onClick={() => {
+                        gpsLocation()
+                    }} >Ostavi GPS lokaciju</p>
+                    <div className='latLong'>
+                        <p className='inputLabel'>latitude</p>
+                        <p className='longitude  formInput'>{latitude}</p>
+                        <p className='inputLabel'>longitude</p>
+                        <p className='latitude  formInput'>{longitude}</p>
+                    </div> */}
+
                     <p className='inputLabel'>Adresa</p>
                     <input className='formInput' type="text" placeholder='npr. Jurija Gagarina 12' onChange={(e) => {
                         setAddress(e.target.value)
@@ -60,6 +87,7 @@ function AddFoundPlate(props) {
                         e.preventDefault()
                         setMessage(e.target.value)
                     }} />
+
                     <p className='submitBTN formInput' onClick={() => {
                         onSubmit()
 

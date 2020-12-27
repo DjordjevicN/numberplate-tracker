@@ -6,6 +6,7 @@ function AddLostPlate(props) {
     const { register, handleSubmit, errors } = useForm()
     let onSubmit = (data) => {
         data.owner_id = props.authUser.id;
+        data.found = 0
         props.createLostPlate(data)
     }
 

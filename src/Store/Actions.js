@@ -1,13 +1,19 @@
 import Axios from 'axios'
-let hosting = "http://localhost:3001"
-// let hosting = "http://api.izgubljene-tablice.com"
-
+import * as notifications from '../components/Notifications'
+// let hosting = "http://localhost:3001"
+let hosting = "http://api.tablice.nikola-djordjevic.com"
 export const findNumberplate = (value) => {
     return async (dispatch) => {
         dispatch({
             type: "LOADING_TRUE"
         })
         let response = await Axios.get(`${hosting}/findNumberplate/${value}`);
+
+        if (response.data.success) {
+            notifications.success(response.data.message)
+        } else {
+            notifications.fail(response.data.message)
+        }
         dispatch({
             type: 'SET_FOUND_NUMBER_PLATES',
             payload: response.data.results
@@ -39,6 +45,11 @@ export const plateChecker = (value) => {
             type: "LOADING_TRUE"
         })
         let response = await Axios.get(`${hosting}/plateChecker/${value}`);
+        if (response.data.success) {
+            notifications.info(response.data.message)
+        } else {
+            notifications.fail(response.data.message)
+        }
         dispatch({
             type: 'SET_MATCHED_PLATE',
             payload: response.data.results
@@ -54,34 +65,35 @@ export const createLostPlate = (value) => {
             type: "LOADING_TRUE"
         })
 
-        await Axios.post(`${hosting}/createLostPlate`, { value })
+        let response = await Axios.post(`${hosting}/createLostPlate`, { value })
+        if (response.data.success) {
+            notifications.success(response.data.message)
+        } else {
+            notifications.fail(response.data.message)
+        }
         dispatch({
             type: 'LOADING_FALSE'
         })
-        // dispatch({
-        //     type: "NOTIFICATION",
-        //     payload: post.data.notification
-        // })
-        // if (post.data.status) {
-        //     notifications.success(post.data.notification)
-        // } else {
-        //     notifications.fail(post.data.notification)
-        // }
     }
 }
 export const createFoundPlate = (value) => {
-
     return async (dispatch) => {
         dispatch({
             type: "LOADING_TRUE"
         })
-        // if (value.taskAddress) {
-        //     const response = await Axios.get(` https://api.opencagedata.com/geocode/v1/json?q=${value.taskAddress}&key=aa1b2e2507e3478f9059aabe4850e45f&language=en&pretty=1`)
-        //     value.taskLatitude = response.data.results[0].geometry.lat
-        //     value.taskLongitude = response.data.results[0].geometry.lng
-        // }
+        if (value.address) {
+            const response = await Axios.get(` https://api.opencagedata.com/geocode/v1/json?q=${value.address}&key=aa1b2e2507e3478f9059aabe4850e45f&language=en&pretty=1`)
+            if (response.status < 300) {
+                value.latitude = response.data.results[0].geometry.lat
+                value.longitude = response.data.results[0].geometry.lng
+            }
+        }
         let response = await Axios.post(`${hosting}/createFoundPlate`, { value })
-        console.log(response);
+        if (response.data.success) {
+            notifications.success(response.data.message)
+        } else {
+            notifications.fail(response.data.message)
+        }
         dispatch({
             type: 'SET_NEW_PLATE',
             payload: response.data.results
@@ -89,15 +101,7 @@ export const createFoundPlate = (value) => {
         dispatch({
             type: 'LOADING_FALSE'
         })
-        // dispatch({
-        //     type: "NOTIFICATION",
-        //     payload: post.data.notification
-        // })
-        // if (post.data.status) {
-        //     notifications.success(post.data.notification)
-        // } else {
-        //     notifications.fail(post.data.notification)
-        // }
+
     }
 }
 export const createUser = (value) => {
@@ -106,16 +110,12 @@ export const createUser = (value) => {
             type: "LOADING_TRUE"
         })
         const response = await Axios.post(`${hosting}/createUser`, { value })
-        console.log(response);
-        // dispatch({
-        //     type: "NOTIFICATION",
-        //     payload: response.data.notification
-        // })
-        // if (response.data.status) {
-        //     notifications.success(response.data.notification)
-        // } else {
-        //     notifications.fail(response.data.notification)
-        // }
+
+        if (response.data.success) {
+            notifications.success(response.data.message)
+        } else {
+            notifications.fail(response.data.message)
+        }
         dispatch({
             type: 'LOADING_FALSE'
         })
@@ -123,21 +123,17 @@ export const createUser = (value) => {
 }
 // LOGIN USER
 export const loginUser = (value) => {
-
     return async (dispatch) => {
         dispatch({
             type: "LOADING_TRUE"
         })
-        console.log('vvv');
         const response = await Axios.post(`${hosting}/loginUser`, { value });
-
-        console.log('ovde');
-        console.log(response);
+        if (response.data.success) {
+            notifications.success(response.data.message)
+        } else {
+            notifications.fail(response.data.message)
+        }
         if (response.data.results.length <= 0) {
-            // dispatch({
-            //     type: "NOTIFICATION",
-            //     payload: response.data.notification
-            // })
             dispatch({
                 type: "LOADING_FALSE"
             })
@@ -161,8 +157,25 @@ export const logoutUser = () => {
         dispatch({
             type: "LOGOUT_USER"
         })
+
         dispatch({
             type: 'SET_LOCAL_STATE_LOGOUT'
+        })
+    }
+}
+export const getStats = () => {
+    return async (dispatch) => {
+        dispatch({
+            type: "LOADING_TRUE"
+        })
+        const response = await Axios.get(`${hosting}/getStats`);
+
+        dispatch({
+            type: "SET_GLOBAL",
+            payload: response.data.results[0]
+        })
+        dispatch({
+            type: "LOADING_FALSE"
         })
     }
 }

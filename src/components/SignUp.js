@@ -36,7 +36,7 @@ function SignUp(props) {
                 <Link to='/login' className='link switchForm'>Imam profil</Link>
             </div>
             <div className="tut">
-                <p>Mi ne saljemo spam Email-ove niti koristimo vase podatke da vas targetiramo reklamama. Email koristimo iskljucivo kako bi znali ko je postavio tablicu i ako ste oglasili tablicu kao izgubljenu da znamo na koji email da vas obavestimo da je pronadjena a pronalazacu zahvalnicu.</p>
+                <p>Mi ne šaljemo spam Email-ove niti koristimo vase podatke da vas targetiramo reklamama. Email koristimo iskljucivo kako bi znali ko je postavio tablicu ili ako ste oglasili tablicu kao izgubljenu da znamo na koji email da vas obavestimo da je tablica pronadjena a na koji da zahvalnicu pronalayaču.</p>
 
             </div>
         </div>

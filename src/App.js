@@ -18,13 +18,16 @@ import Login from './components/Login'
 import AddFoundPlate from './components/AddFoundPlate'
 import AddLostPlate from './components/AddLostPlate'
 import Profile from './components/Profile'
-
-
-
+import MapComponent from './components/MapComponent'
+import ReactNotification from 'react-notifications-component'
+import 'react-notifications-component/dist/theme.css'
+import 'animate.css/animate.compat.css'
+// import { NotificationContainer, NotificationManager } from 'react-notifications';
 function App() {
   return (
     <BrowserRouter>
       <div className="App">
+        <ReactNotification />
         <Menu />
         <Switch>
           <Route path='/' exact component={Home} />
@@ -36,6 +39,7 @@ function App() {
           <Route path='/addFoundPlate' component={AddFoundPlate} />
           <Route path='/addLostPlate' component={AddLostPlate} />
           <Route path='/profile' component={Profile} />
+          <Route path='/map' component={MapComponent} />
         </Switch>
       </div>
     </BrowserRouter>

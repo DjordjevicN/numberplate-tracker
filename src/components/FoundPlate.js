@@ -13,18 +13,18 @@ function FoundPlate(props) {
                     <div className="cardBlock" key={item.plate_id}>
                         <div className="plateCard" >
                             <Link className="plateCardLink link" to='/map'>
-                                <FcGlobe /> MAPA</Link>
-                            <img src={item.image} alt="plate" />
+                                {item.latitude && item.longitude ?
+                                    <div className="foundPlateMap">
+                                        <FcGlobe /> MAPA
+                            </div>
+                                    : null}    </Link>
+                            <img src={`http://api.tablice.nikola-djordjevic.com/uploads/${item.picture}`} alt="plate" />
                             <p><span>Broj tablice: </span> {item.plateNumber}</p>
                             {item.address && <p><span>Ulica: </span>{item.address}</p>}
                             {item.message && <p><span>Poruka: </span>{item.message}</p>}
                         </div>
 
-                        {item.latitude && item.longitude ?
-                            <div className="foundPlateMap">
-                                MAPA
-                            </div>
-                            : null}
+
                     </div>
 
                 ))}
