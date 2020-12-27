@@ -1,15 +1,16 @@
 const mysql = require('mysql')
-
 // Database
 module.exports = mysql.createConnection({
-    user: 'root',
+    user: 'vrtirep_nikola',
     host: 'localhost',
-    password: '',
-    database: 'lostplates'
+    password: '&zL^dDMAt+NR',
+    database: 'vrtirep_tablice'
 })
-// db.connect((err) => {
-//     if (err) {
-//         throw err
-//     }
-//     console.log('SQL CONNECTED');
-// });
+
+// module.exports = mysql.createConnection({
+//     user: 'root',
+//     host: 'localhost',
+//     password: '',
+//     database: 'lostplates'
+// })
+
