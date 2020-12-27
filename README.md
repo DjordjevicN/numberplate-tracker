@@ -1,5 +1,5 @@
 
-![alt text](https://raw.githubusercontent.com/DjordjevicN/Cyberpunk_portfolio_2020/master/Screenshot_11.jpg)
+![alt text](https://raw.githubusercontent.com/DjordjevicN/imagesRep/master/Screenshot_3.jpg)
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
