@@ -6,6 +6,21 @@ const saltRounds = 3;
 const jwt = require('jsonwebtoken')
 const auth = require('../auth')
 const db = require('../database')
+
+
+
+router.get('/getMyData', auth, (req, res) => {
+    let id = req.user.user.id
+    let sql = `SELECT * FROM users WHERE id = '${id}'`
+    let query = db.query(sql, (err, results) => {
+        if (err) throw err;
+        res.send({ results, notification: '' })
+    })
+})
+
+
+
+
 router.get('/users', async (req, res) => {
     let sql = `SELECT * FROM users;`
     let query = db.query(sql, (err, results) => {
@@ -50,6 +65,8 @@ router.post('/loginUser', (req, res) => {
                 }
                 delete results[0].password;
                 let token = jwt.sign({ user }, process.env.TOKEN_SECRET);
+
+
                 res.json({ message: 'Dobrodosli', success: true, token, results });
             }
         }

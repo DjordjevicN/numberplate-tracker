@@ -2,6 +2,7 @@
 const express = require('express');
 const router = express.Router();
 const db = require('../database')
+
 router.get('/allPlates', async (req, res) => {
     let sql = `SELECT * FROM plate ;`
     let query = db.query(sql, (err, results) => {
@@ -29,7 +30,6 @@ router.post('/createLostPlate', async (req, res) => {
 })
 // create found plate
 router.post('/createFoundPlate', async (req, res) => {
-
     let { plateNumber, message, users_id, address, found, longitude,
         latitude } = req.body.value
     let sql = `INSERT INTO plate SET 

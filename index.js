@@ -40,6 +40,7 @@ app.get('/getStats', async (req, res) => {
         res.json({ message: '', success: true, results });
     })
 })
+
 // plateChecker
 app.get('/plateChecker/:id', async (req, res) => {
     let sql = `SELECT * FROM plate INNER JOIN users ON  users.id = plate.owner_id AND plate.plateNumber = '${req.params.id}';`
@@ -52,6 +53,7 @@ app.get('/plateChecker/:id', async (req, res) => {
             let plateOwnerEmail = results[0].email;
             let plateNumber = results[0].plateNumber;
             const sgMail = require('@sendgrid/mail')
+
             sgMail.setApiKey(process.env.SENDGRID_API_KEY)
             const msg = {
                 to: `${plateOwnerEmail}`, // Change to your recipient
@@ -71,10 +73,39 @@ app.get('/plateChecker/:id', async (req, res) => {
                 .catch((error) => {
                     console.error(error)
                 })
+            res.json({ message: 'Ova tablica je oglasena kao izgubljena', success: true, results });
         }
-        res.json({ message: 'Ova tablica je oglasena kao izgubljena', success: true, results });
     })
 })
+// ADD LOST PLATE COUNT
+app.post('/addGlobalLost', async (req, res) => {
+    let newTotal = req.body.value
+    let sql = `UPDATE plateglobal SET 
+    total_lost_plates = "${newTotal}" WHERE plateGlobal_id = 1
+    `
+    let query = await db.query(sql, (err, results) => {
+        if (err) {
+            res.json({ message: '', success: false });
+            throw err
+        };
+        res.json({ message: '', success: true, results });
+    })
+})
+// ADD found PLATE COUNT
+app.post('/addGlobalFound', async (req, res) => {
+    let newTotal = req.body.value
+    let sql = `UPDATE plateglobal SET 
+    total_found_plates = "${newTotal}" WHERE plateGlobal_id = 1
+    `
+    let query = await db.query(sql, (err, results) => {
+        if (err) {
+            res.json({ message: '', success: false });
+            throw err
+        };
+        res.json({ message: '', success: true, results });
+    })
+})
+
 
 app.listen(`${port}`, () => {
     console.log(`SERVER WORKING on ${port}`);
